@@ -17,7 +17,8 @@ import CommonFunction as cf
 import BlockchainDataIncremental
 
 
-
+# Load all transactions from the XRP Ledger for specific node addresses
+# Save the transactions to the staging table for the database level processing
 def LoadTransactionsFull():
     
     NodeList = cf.ExecuteSQLQuery('SELECT [NodeHashKey],[Address],[Name] FROM [PFNode].[pfn].[tbl_Node] WHERE TransactionLoadingFlag=1')
@@ -91,6 +92,7 @@ def LoadTransactionsFull():
             
 
     Connection.close() 
+
 
 def LoadAddresses():
     BlockchainDataIncremental.LoadAddresses()
