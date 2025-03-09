@@ -11,10 +11,8 @@ import Settings as s
 import CommonFunction as cf
 import traceback
 
-
+#Get new messages from the database and send them to the Flux API
 def Asking():
-
-        
 
     Messages=cf.ExecuteSQLQuery(f"""SELECT m.MessageKey, m.Role, m.Text, m.FluxChatID, u.UserKey, u.Address, m.Mode, uns.NodeKey
                 FROM pfn.tbl_Message m
@@ -56,7 +54,7 @@ def Asking():
 
 
             
-
+#Get answers from the Flux API and send them to the users via the XRP Ledger
 def Answering():
   
     payload = json.dumps({

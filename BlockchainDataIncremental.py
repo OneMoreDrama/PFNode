@@ -5,7 +5,8 @@ from datetime import datetime, timedelta
 import Settings as s
 import CommonFunction as cf
 
-
+# Load last 100 transactions from the XRP Ledger for specific node addresses
+# Save the transactions to the staging table for the database level processing
 def LoadTransactionsIncremental():
     try:
         
@@ -58,19 +59,23 @@ def LoadTransactionsIncremental():
    
 
 
-
+#Find the Google Document ID from the transaction memo (need only for Buzz node, for data feed about the task node)
+#Save the mapping to the database
 def LoadGoogleDocumentTransactionMapping():
     try:
         cf.ExecuteSQLQuery('{CALL pfn.sp_GoogleDocumentTransactionMapping()}')
     except Exception:
         cf.EventLog('BlockchainDataIncremental.py','Exception','LoadGoogleDocumentTransactionMapping',str(Exception),'')
 
+
+#Load the users from the transactions to the database
 def LoadUsersFromTransactions():
     try:
         cf.ExecuteSQLQuery('{CALL pfn.sp_User()}')
     except Exception:
         cf.EventLog('BlockchainDataIncremental.py','Exception','LoadUsersFromTransactions',str(Exception),'')
 
+#Create messages from the transaction memos
 def LoadMessagesFromTransactions():
     try:
         cf.ExecuteSQLQuery('{CALL pfn.sp_Message()}')

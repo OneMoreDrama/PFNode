@@ -3,6 +3,7 @@ import Settings as s
 
 Connection = None
 
+#Perform a SQL query
 def ExecuteSQLQuery(SQLQuery, Parameters=None):
     global Connection
     if Connection is None:
@@ -24,7 +25,7 @@ def ExecuteSQLQuery(SQLQuery, Parameters=None):
     return Result
 
     
-
+#Log an event
 def EventLog(Source,Type,Name,Description,Data):
     print(Source,Type,Name,Description)
     JoinedData = '---------'.join(Data)

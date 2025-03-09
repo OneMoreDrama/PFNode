@@ -5,7 +5,7 @@ from pymilvus import connections, FieldSchema, CollectionSchema, DataType,Collec
 import Settings as s
 
 
-LLMClient=OpenAI(api_key="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")
+LLMClient=OpenAI(api_key=s.ChatGPTApiKey)
  
 EMBED_MODEL = "text-embedding-3-large"   # or another supported model
 EMBED_DIM = 1536                         # for 'text-embedding-ada-002'
