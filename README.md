@@ -8,7 +8,9 @@ Nodes:
 ---------------------------------------------------------------------------------
 
 **Forecaster** (Status: MVP) - an AI tool designed to assist users with data on any market listed on Polymarket
+
   Node Address: rGyDAsvG8UzJLwsHQaKJcV8gVoLaT3hAe5
+  
   Docs: https://docs.google.com/document/d/1J7RfZYZk0OYBE1-1Y8qk73jcegRLhojVxJu-G4NdExo/
 
 ---------------------------------------------------------------------------------
