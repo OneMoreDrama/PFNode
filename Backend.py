@@ -96,6 +96,8 @@ def Answering():
             if Response.get('inProgress') == False:
                 if 'error' in Response:
                     AnswerText = Response['error']
+                    AnswerText = AnswerText.replace('event-not-found','Market not found, please try again')
+                    cf.ExecuteSQLQuery(f"UPDATE pfn.tbl_UserNodeSetting SET CurrentFluxChatID=NULL WHERE UserKey= ? AND NodeKey= ?", ( Message.UserKey, Message.NodeKey))
                 else:  
                     if Message.Mode == 'Full with research':
                         Report = f'\n\n FULL RESEARCH: \n\n {Response["report"]}'
