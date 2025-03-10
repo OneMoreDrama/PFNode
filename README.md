@@ -42,3 +42,5 @@ Retrieves and stores Google Documents referenced in XRP Ledger transactions. Onl
 
 ### Settings.py
 Centralizes configuration settings for the application, including database connections, API endpoints, and blockchain node information.
+
+
